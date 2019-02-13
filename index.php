@@ -36,7 +36,7 @@ $p_skype = "here_your_login_skype";
 $p_icq = "279679659";
 $p_email = "psdhtmlcss@mail.ru";
 $p_phone = "80 00 4568 55 55";
-$footer_copiright = "Copyright &copy; 2014 Product name · PSD HTML CSS";
+$footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS";
 ?>
 
 <!DOCTYPE html>
