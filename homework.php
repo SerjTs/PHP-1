@@ -254,8 +254,7 @@ function time_now($hours, $minutes) {
 	} else {
 		$clock_hours = $hours." часа ";
 	}
-	
-if ($minutes == 0) {
+	if ($minutes == 0) {
 		$clock_minutes = $minutes."0 минут ";
 	}else if (($minutes > 4 && $minutes < 21 )|| ($minutes > 24 && $minutes < 31 )|| ($minutes > 34 && $minutes < 41 )|| ($minutes > 44 && $minutes < 51 )|| ($minutes > 54 && $minutes < 60 )) {
 		$clock_minutes = $minutes." минут ";
@@ -264,9 +263,6 @@ if ($minutes == 0) {
 	} else {
 		$clock_minutes = $minutes." минуты ";
 	}
-
-	
 	return $clock_hours." ".$clock_minutes;
 }
 echo time_now($hours, $minutes);
-//echo time_now;
