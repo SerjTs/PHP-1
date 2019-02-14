@@ -232,3 +232,41 @@ function power($val, $pow){
 }
 power($val, $pow);
 echo "power=$mult <br>";
+echo "<hr>";
+
+echo "<br> Задание 7. *Написать функцию, которая вычисляет текущее время
+	и возвращает его в формате с правильными склонениями, например:
+	22 часа 15 минут
+	21 час 43 минуты<br><br>";
+echo "Решение.<br><br>";
+$hours = date('H');
+$minutes = date('i');
+//$hours = rand(0,23);
+//$hours = 0;
+echo "hours=$hours <br>";
+//$minutes = rand(0,59);
+echo "minutes=$minutes <br>";
+function time_now($hours, $minutes) {
+	if ($hours == 0 || ($hours > 4 && $hours < 21 )) {
+		$clock_hours = $hours." часов ";
+	} else if ($hours == 1 || $hours == 21) {
+		$clock_hours = $hours." час ";
+	} else {
+		$clock_hours = $hours." часа ";
+	}
+	
+if ($minutes == 0) {
+		$clock_minutes = $minutes."0 минут ";
+	}else if (($minutes > 4 && $minutes < 21 )|| ($minutes > 24 && $minutes < 31 )|| ($minutes > 34 && $minutes < 41 )|| ($minutes > 44 && $minutes < 51 )|| ($minutes > 54 && $minutes < 60 )) {
+		$clock_minutes = $minutes." минут ";
+	} else if ($minutes == 1 || $minutes == 21 || $minutes == 31 || $minutes == 41 || $minutes == 51) {
+		$clock_minutes = $minutes." минута ";
+	} else {
+		$clock_minutes = $minutes." минуты ";
+	}
+
+	
+	return $clock_hours." ".$clock_minutes;
+}
+echo time_now($hours, $minutes);
+//echo time_now;
