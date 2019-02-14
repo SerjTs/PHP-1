@@ -215,3 +215,20 @@ echo "<hr>";
 echo "<br> Задание 6. *С помощью рекурсии организовать функцию возведения числа в степень.
 	Формат: function power($val, $pow), где $val – заданное число, $pow – степень.<br><br>";
 echo "Решение.<br><br>";
+$val = rand(0,10);
+echo "val=$val <br>";
+$pow = rand(0,10);
+echo "pow=$pow <br>";
+$mult = 1;
+function power($val, $pow){
+	if ($pow > 0) {
+		global $mult;
+		$mult = $mult * $val;
+		$pow -= 1;
+		power($val, $pow);
+	} else {
+		return $mult;
+	}	
+}
+power($val, $pow);
+echo "power=$mult <br>";
