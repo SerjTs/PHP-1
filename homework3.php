@@ -49,7 +49,6 @@ echo "Решение.<br><br>";
 $cities = ['Москва, Зеленоград, Клин', 'Санкт-Петербург, Всеволожск, Павловск, Кронштадт', 'Великий Новгород, Демьянск, Марово, Крестцы',
 		   'Тверь, Торжок, Бежецк', 'Рязань, Спасск-Рязанский, Скопин', 'Пенза, Колышлей, Сурск', 'Волгоград, Волжский, Камышин, Михайловка',
 		   'Саратов, Энгельс, Новокузнецк'];
-$areas = [];
 $areas['Московская область'] = $cities[0];
 $areas['Ленинградская область'] = $cities[1];
 $areas['Новгородская область'] = $cities[2];
@@ -69,58 +68,126 @@ echo "Задание 4. Объявить массив, индексами кот
 	 ‘в’ => ‘v’, ‘г’ => ‘g’, …, ‘э’ => ‘e’, ‘ю’ => ‘yu’, ‘я’ => ‘ya’).
 	 Написать функцию транслитерации строк.<br><br>";
 echo "Решение.<br><br>";
-$translitArray ['а'] = 'a';
-$translitArray ['б'] = 'b';
-$translitArray ['в'] = 'v';
-$translitArray ['г'] = 'g';
-$translitArray ['д'] = 'd';
-$translitArray ['е'] = 'e';
-$translitArray ['ё'] = 'yo';
-$translitArray ['ж'] = 'zh';
-$translitArray ['з'] = 'z';
-$translitArray ['и'] = 'i';
-$translitArray ['й'] = 'j';
-$translitArray ['к'] = 'k';
-$translitArray ['л'] = 'l';
-$translitArray ['м'] = 'm';
-$translitArray ['н'] = 'n';
-$translitArray ['о'] = 'o';
-$translitArray ['п'] = 'p';
-$translitArray ['р'] = 'r';
-$translitArray ['с'] = 's';
-$translitArray ['т'] = 't';
-$translitArray ['у'] = 'u';
-$translitArray ['ф'] = 'f';
-$translitArray ['х'] = 'h';
-$translitArray ['ц'] = 'c';
-$translitArray ['ч'] = 'ch';
-$translitArray ['ш'] = 'sh';
-$translitArray ['щ'] = 'shh';
-$translitArray ['ъ'] = '#';
-$translitArray ['ы'] = 'y';
-$translitArray ['ь'] = '`';
-$translitArray ['э'] = 'je';
-$translitArray ['ю'] = 'yu';
-$translitArray ['я'] = 'ya';
+$translitArray = [
+	'A' => 'A',
+    'а' => 'a',
+    'Б' => 'B',
+    'б' => 'b',
+	'В' => 'V',
+	'в' => 'v',
+    'Г' => 'G',
+    'г' => 'g',
+	'Д' => 'D',
+	'д' => 'd',
+	'Е' => 'E',
+	'е' => 'e',
+    'Ё' => 'Yo',
+	'ё' => 'yo',
+    'Ж' => 'Zh',
+	'ж' => 'zh',
+    'З' => 'Z',
+	'з' => 'z',
+    'И' => 'I',
+	'и' => 'i',
+    'Й' => 'J',
+	'й' => 'j',
+    'К' => 'K',
+	'к' => 'k',
+    'Л' => 'L',
+	'л' => 'l',
+    'М' => 'M',
+	'м' => 'm',
+    'Н' => 'N',
+	'н' => 'n',
+    'О' => 'O',
+	'о' => 'o',
+    'П' => 'P',
+	'п' => 'p',
+    'Р' => 'R',
+	'р' => 'r',
+    'С' => 'S',
+	'с' => 's',
+    'Т' => 'T',
+	'т' => 't',
+    'У' => 'Y',
+	'у' => 'u',
+    'Ф' => 'F',
+	'ф' => 'f',
+    'Х' => 'H',
+	'х' => 'h',
+    'Ц' => 'C',
+	'ц' => 'c',
+    'Ч' => 'Ch',
+	'ч' => 'ch',
+    'Ш' => 'Sh',
+	'ш' => 'sh',
+    'Щ' => 'Shh',
+	'щ' => 'shh',
+    'Ъ' => '#',
+	'ъ' => '#',
+    'Ы' => 'Y',
+	'ы' => 'y',
+    'Ь' => '`',
+	'ь' => '`',
+    'Э' => 'Je',
+	'э' => 'je',
+    'Ю' => 'Yu',
+	'ю' => 'yu',
+    'Я' => 'Ya',
+	'я' => 'ya'
+];
 function translit ($string) {
-	$stringArray = str_split($string);
-	foreach ($stringArray as $key) {
-	global $translitArray;
-	//echo $translitArray['ю'];
-	echo $key;
-	echo $translitArray[$key];  //не показывает результат
-	}	
+	echo $string;
+	$stringArray = preg_split('//u', $string);
+	foreach ($stringArray as $value) {
+        global $translitArray;
+		$translation .= ($translitArray[$value])?$translitArray[$value]:$value;
+    }
+	return '<br/>'.$translation;
 }
-translit('Опока');
-//echo $translitArray['ю'];
-//var_dump ($stringArray);	
-//$asd = 'qwerty';
- //echo $asd [0]; // выдаст "q"
- //echo $asd [2]; // выдаст "e"
- //echo $asd [100] ;// выдаст пустоту
- 
- //$a = array(1, 2, 3, 17);
-//$a = "asdfgh";
-//foreach ($a as $v) {
- //   echo "Текущее значение переменной \$a: $v.\n";
-//}
+	echo translit('Здравствуйте, я ваша тётя!');
+	
+echo "<hr>";
+echo "<br>";
+echo "Задание 5. Написать функцию, которая заменяет в строке пробелы на подчеркивания
+	 и возвращает видоизмененную строчку.<br><br>";
+echo "Решение.<br><br>";
+
+function underscore ($line) {
+	echo $line.'<br/>';
+	$letters = preg_split('//u', $line);
+	foreach ($letters as $value) {
+		if ($value === " ") {
+			$value = "_";
+		}
+		$translation .= $value;
+	}
+	echo $translation;
+}
+underscore ('Между словами должны быть знаки почёркивания');
+
+echo "<hr>";
+echo "<br>";
+echo "Задание 6. В имеющемся шаблоне сайта заменить статичное меню (ul - li) на генерируемое через PHP.
+	 Необходимо представить пункты меню как элементы массива и вывести их циклом. Подумать, как можно
+	 реализовать меню с вложенными подменю? Попробовать его реализовать.<br><br>";
+echo "Решение добавлено в html.<br><br>";
+
+$li_main_menu = [
+    "<li>Put on this page information about your product</li>",
+    "<li>A detailed description of your product</li>",
+    "<li>Tell us about the advantages and merits</li>",
+    "<li>Associate the page with the payment system</li>"
+    ];
+for ($i = 0; $i <= count($li_main_menu); $i++) {
+	echo $li_main_menu[$i];
+}   
+
+echo "<hr>";
+echo "<br>";
+echo "Задание 7*. Вывести с помощью цикла for числа от 0 до 9, НЕ используя тело цикла.
+	 То есть выглядеть должно так:
+	 for (…){ // здесь пусто}.<br><br>";
+echo "Решение.<br><br>";
+
+for ($i = 0; $i < 10; print $i++);

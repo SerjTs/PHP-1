@@ -1,10 +1,12 @@
 <?php
 $title = "Simple product";
 $h1_header = "Product name";
-$li_main_menu = "<li>Put on this page information about your product</li>
-                 <li>A detailed description of your product</li>
-                 <li>Tell us about the advantages and merits</li>
-                 <li>Associate the page with the payment system</li>";
+$li_main_menu = [
+    "<li>Put on this page information about your product</li>",
+    "<li>A detailed description of your product</li>",
+    "<li>Tell us about the advantages and merits</li>",
+    "<li>Associate the page with the payment system</li>"
+    ];
 $h2_about = "About your product";
 $p_about_1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis facilis fuga, illo at. Natus eos, eligendi illum rerum omnis porro ex, magni, explicabo veniam incidunt in quam sapiente ut ipsum.";
 $p_about_2 = "Pariatur iure ab sunt nesciunt, quibusdam odio iste cumque itaque, ipsa vel exercitationem ullam quos aut nostrum cupiditate fuga quaerat quam animi dolores. Sequi itaque, unde per&shy;ferendis nemo debitis dolor.";
@@ -55,7 +57,11 @@ $footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS
             <div class="product-name">
                 <h1> <?= $h1_header ?> </h1>
                 <ul>
-                   <?= $li_main_menu ?>
+                    <?php 
+                       for ($i = 0; $i <= count($li_main_menu); $i++)
+	                        echo $li_main_menu[$i];
+                    ?>
+                    
                 </ul>
             </div>
             <img src="img/engine.JPG" alt="Изображение товара">
