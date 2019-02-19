@@ -204,8 +204,12 @@ video {
 .figure-box {
     clear: both;
     max-width: 590px;
+	text-decoration: none;
 }
 
+.figure-box a {
+	text-decoration: none;
+}
 .screenshots img {
     background-color: #445161;
     width: 200px;

@@ -16,6 +16,7 @@ $pluses_details = "<summary>Delectus dolorem vero quae beatae quasi dolor deseru
 $h2_screenshots = "Screenshots";
 $screenshots_figcaption = "<h3>The description for the image</h3>
                             <p>Pariatur iure ab sunt nesciunt, quibusdam odio iste cumque itaque, ipsa vel exercitationem ullam quos aut nostrum cupiditate fuga quaerat quam animi dolores. Sequi itaque, unde perferendis nemo debitis dolor.</p>";
+$screenshots_pic_link = "img/collector.jpg";
 $rewiew_box = '<div class="circle"></div>
                         <div class="reviews-text">
                             <p>Porro officia cumque sint deleniti nemo facere rem vitae odit inventore cum odio, iste quia doloribus autem aperiam nulla ea neque reprehen&shy;derit. Libero doloribus, possimus officiis sapiente necessitatibus commodi consectetur?</p>
@@ -94,20 +95,28 @@ $footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS
                 <h2> <?= $h2_screenshots ?></h2>
                 <div class="figure-container">
                     <figure class="figure-box">
-                        <img src="img/collector.jpg" alt="Image of the product">
-                        <figcaption> <?= $screenshots_figcaption ?> </figcaption>
+						<a href="<?= $screenshots_pic_link ?>" target="_blank">
+							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
+						</a>
+							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
                     </figure>
                     <figure class="figure-box">
-                        <img src="img/collector.jpg" alt="Image of the product">
-                        <figcaption> <?= $screenshots_figcaption ?> </figcaption>
+						<a href="<?= $screenshots_pic_link ?>" target="_blank">
+							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
+						</a>
+							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
                     </figure>
                     <figure class="figure-box">
-                        <img src="img/collector.jpg" alt="Image of the product">
-                        <figcaption> <?= $screenshots_figcaption ?> </figcaption>
+						<a href="<?= $screenshots_pic_link ?>" target="_blank">
+							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
+						</a>
+							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
                     </figure>
                     <figure class="figure-box">
-                        <img src="img/collector.jpg" alt="Image of the product">
-                        <figcaption> <?= $screenshots_figcaption ?> </figcaption>
+						<a href="<?= $screenshots_pic_link ?>" target="_blank">
+							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
+						</a>
+							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
                     </figure>
                 </div>
             </article>
