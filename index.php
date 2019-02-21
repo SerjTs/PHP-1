@@ -51,6 +51,8 @@ $footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS
     <title><?= $title ?></title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -122,7 +124,7 @@ $footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS
                         // и код с координатами каждой картинки встраивается в блок html
                         echo '
                         <figure class="figure-box">
-                            <a href="'.$picLocation.'" target="_blank">
+                            <a id="go" href="'.$picLocation.'" target="_blank">
                                 <img src="'.$picLocation.'" alt="Image of the product">
                             </a>
                             <figcaption> '.$screenshots_figcaption.' </figcaption>
@@ -130,6 +132,11 @@ $footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS
                     }
                     ?>
                 </div>
+                <div id="modal_form"><!-- Сaмo oкнo --> 
+                      <span id="modal_close">X</span> <!-- Кнoпкa зaкрыть --> 
+                      <img id="modal_img" src="img/collector.jpg" alt="Image of the product">
+                </div>
+                <div id="overlay"></div><!-- Пoдлoжкa -->
             </article>
             <article class="reviews">
                 <h2>Reviews</h2>
