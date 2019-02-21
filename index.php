@@ -40,6 +40,7 @@ $p_icq = "279679659";
 $p_email = "psdhtmlcss@mail.ru";
 $p_phone = "80 00 4568 55 55";
 $footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS";
+
 ?>
 
 <!DOCTYPE html>
@@ -94,30 +95,40 @@ $footer_copiright = "Copyright &copy; ".date('Y')." Product name · PSD HTML CSS
             <article class="screenshots">
                 <h2> <?= $h2_screenshots ?></h2>
                 <div class="figure-container">
-                    <figure class="figure-box">
-						<a href="<?= $screenshots_pic_link ?>" target="_blank">
-							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
-						</a>
-							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
-                    </figure>
-                    <figure class="figure-box">
-						<a href="<?= $screenshots_pic_link ?>" target="_blank">
-							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
-						</a>
-							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
-                    </figure>
-                    <figure class="figure-box">
-						<a href="<?= $screenshots_pic_link ?>" target="_blank">
-							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
-						</a>
-							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
-                    </figure>
-                    <figure class="figure-box">
-						<a href="<?= $screenshots_pic_link ?>" target="_blank">
-							<img src="<?= $screenshots_pic_link ?>" alt="Image of the product">
-						</a>
-							<figcaption> <?= $screenshots_figcaption ?> </figcaption>
-                    </figure>
+                    <?php
+                    // обьявление переменной в которой хранится путь к каталогу с картинками
+                    $dir = 'pic';
+                    // создание массива файлов из данного каталога
+                    $files = scandir($dir);
+                    // создание массива файлов-картинок
+                    $picArray = [];
+                    // строка поиска по типу файла image
+                    $findme = 'image';
+                    // перебор массива файлов
+                    foreach ($files as $key => $value) {
+                        // определение типа файла 
+                        $fileType = mime_content_type($dir.'/'.$value) ."<br>";
+                        // если файл - картинка (тип файла записан в $findme)
+                        $pos = strpos($fileType, $findme);
+                        if ($pos !== false) {
+                            // имя файла добавляется в массив файлов-картинок
+                            $picArray [] = $value;
+                        }
+                    }
+                    // перебор массива файлдов-картинок    
+                    foreach ($picArray as $value) {
+                        // для каждой картинки указывается полный путь 
+	                    $picLocation = $dir.'/'.$value;
+                        // и код с координатами каждой картинки встраивается в блок html
+                        echo '
+                        <figure class="figure-box">
+                            <a href="'.$picLocation.'" target="_blank">
+                                <img src="'.$picLocation.'" alt="Image of the product">
+                            </a>
+                            <figcaption> '.$screenshots_figcaption.' </figcaption>
+                        </figure>';
+                    }
+                    ?>
                 </div>
             </article>
             <article class="reviews">
