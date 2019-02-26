@@ -1,57 +1,38 @@
 <?php
-
+// создание связи с базой SQL
 $mysql = mysqli_connect('localhost', 'root', '', 'gallery');
-
+// чтение выборки таблицы базы pictures с сортировкой по лайкам
 $mysql_query = mysqli_query($mysql, "SELECT * FROM pictures ORDER BY pictures.likes DESC ;");
-
+// заготовка перевода каретки на новую строку
 $br = '<br/>';
-
+// обьявление массива pictires
 $pictures = [];
-
+// преобразование выборки базы в двумерный массив
 while ($row = mysqli_fetch_assoc($mysql_query)) {
     $pictures[] = $row;
 }
-
+// закрытие соединения с MySLQ базой
 mysqli_close($mysql); ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Урок 5.</title>
+	<title>Урок 5. Галлерея</title>
 	<link rel="stylesheet" href="css/styles.css">
 </head>	
 
 <body>
     <h1>Галерея</h1>
     <div id="gallery">
-        <img data-image="1" src="./img/small/1.jpg" alt="Car">
-        <img data-image="2" src="./img/small/2.jpg" alt="Car">
-        <img data-image="3" src="./img/small/3.jpg" alt="Car">
-		<img data-image="4" src="./img/small/4.jpg" alt="Car">
+        <!-- вывод нужных значений пути и названия картинок с помощью перебора массива -->
+        <? foreach ($pictures as $key => $value) : ?>
+            <!-- открытие картинки в новой странице по клику по указанному id изображения из sql -->
+            <a href="photo.php?id=<?= $value['id'] ?>">
+                <!-- вывод галлереи на текущей странице -->
+                <img src="<?= $value['file'] ?>" alt="<?= $value['name'] ?>">
+            </a>
+        <? endforeach; ?>
     </div>
-    <div id="big_picture"></div>
-    
-    <div class="buttons">
-        <input type="button" id="btnPrev" value="Назад">
-        <input type="button" id="btnNext" value="Вперёд">
-    </div>
-        
-    <script src="js/script.js"></script>
 </body>
 </html>
-
-
-<ul style="width: 40%">
-    <? foreach ($pictures as $files) : ?>
-        <li style="display: flex; justify-content: space-between">
-        <?
-        foreach ($files as $key => $value):
-            ?>
-            <string style="text-align:left"><?= ($key == 'Name') ? '<strong>' . $value . '</strong>' : $value; ?></string>
-        <? endforeach;
-        echo $br; ?>
-        </li><?
-    endforeach; ?>
-</ul>
