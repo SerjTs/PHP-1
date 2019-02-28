@@ -1,11 +1,31 @@
 <?php
 
-// сохранение переданной id картинки из нажатой ссылки
-$id = $_GET['id'];
+// сохранение переданной id картинки из нажатой ссылки с преобразованием в число
+$id = intval($_GET['id']);
 // создание связи с базой SQL
 $mysql = mysqli_connect('localhost', 'root', '', 'gallery');
+// чтение выборки таблицы базы pictures с целью узнать максимальный  id
+$mysql_query_max_id = mysqli_query($mysql, "SELECT MAX(id) FROM pictures;");
+
+// обьявление массива с максимальным значением столбца id 
+$sql_max_id = [];
+// вывод выборки базы в массив
+while ($row = mysqli_fetch_assoc($mysql_query_max_id)) {
+    $sql_max_id[] = $row;
+}
+// перебор массива с максимальным значением id
+foreach ($sql_max_id as $value) {
+    // и сохранение max id в переменную с преобразованием строки в число
+    $max_id = intval($value["MAX(id)"]);
+}
+// проверка соответствия переданной id картинки из нажатой ссылки диапазону возможных значений id
+if ($id <= 0 or $id > $max_id) {
+    // перенаправление обратно на главную страницу галлереи
+    header ('Location: index.php');
+}
 // чтение выборки таблицы базы pictures с конкретным id
 $mysql_query = mysqli_query($mysql, "SELECT * FROM pictures WHERE id=$id;");
+
 // обьявление массива pictire
 $picture = [];
 // вывод выборки базы в массив
