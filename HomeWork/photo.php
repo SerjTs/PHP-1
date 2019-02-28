@@ -24,7 +24,7 @@ if ($id <= 0 or $id > $max_id) {
     header ('Location: index.php');
 }
 // чтение выборки таблицы базы pictures с конкретным id
-$mysql_query = mysqli_query($mysql, "SELECT * FROM pictures WHERE id=$id;");
+$mysql_query = mysqli_query($mysql, "SELECT * FROM pictures WHERE id = $id;");
 
 // обьявление массива pictire
 $picture = [];
@@ -32,6 +32,11 @@ $picture = [];
 while ($row = mysqli_fetch_assoc($mysql_query)) {
     $picture[] = $row;
 }
+// увеличение счетчика просмотров выбранной картинки
+
+$mysql = mysqli_query("UPDATE `pictures` SET `likes` = likes+1 WHERE `pictures`.`id` = $id;");
+
+
 // закрытие соединения с MySLQ базой
 mysqli_close($mysql); ?>
 

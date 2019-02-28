@@ -40,6 +40,7 @@ mysqli_close($mysql); ?>
                 <img src="<?= $value['file'] ?>" alt="<?= $value['name'] ?>">
             </a>
         <? endforeach; ?>
+        <!-- вывод раскрывающегося списка сортировки с запоминанием пользовательского выбора в $_POST['sort'][0] -->
         <form action="index.php" method="post">
             <p><select name="sort[]">
             <option selected disabled>Выберите вариант сортировки</option>
