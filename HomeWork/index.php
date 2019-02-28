@@ -1,8 +1,15 @@
 <?php
 // создание связи с базой SQL
 $mysql = mysqli_connect('localhost', 'root', '', 'gallery');
-// чтение выборки таблицы базы pictures с сортировкой по лайкам
-$mysql_query = mysqli_query($mysql, "SELECT * FROM pictures ORDER BY pictures.likes DESC ;");
+
+// проверка на наличие сортировки выбраннной пользователем
+if ($_POST['sort'][0]) {
+    // чтение выборки таблицы базы pictures с сортировкой пользователя
+    $mysql_query = mysqli_query($mysql, "SELECT * FROM pictures ORDER BY pictures.".$_POST['sort'][0]." ;");
+    } else {
+    // чтение выборки таблицы базы pictures с сортировкой по лайкам
+    $mysql_query = mysqli_query($mysql, "SELECT * FROM pictures ORDER BY pictures.likes DESC ;");
+}
 // заготовка перевода каретки на новую строку
 $br = '<br/>';
 // обьявление массива pictires
@@ -33,6 +40,15 @@ mysqli_close($mysql); ?>
                 <img src="<?= $value['file'] ?>" alt="<?= $value['name'] ?>">
             </a>
         <? endforeach; ?>
+        <form action="index.php" method="post">
+            <p><select name="sort[]">
+            <option selected disabled>Выберите вариант сортировки</option>
+            <option value="likes DESC">По количеству просмотров</option>
+            <option value="id">По времени размещения</option>
+            <option value="name">По фирме и марке машины</option>
+            </select></p>
+            <p><input type="submit" value="Сортировать"></p>
+        </form>
     </div>
 </body>
 </html>
