@@ -48,12 +48,15 @@ mysqli_close($mysql); ?>
         <!-- вывод нужных значений пути и названия картинки с помощью перебора массива -->
         <? foreach ($picture as $key => $value) : ?>
                 <!-- вывод названия картинки -->
-                <h1><?= $value['name'] ?></h1>
+                <h2><?= $value['name'] ?></h2>
                 <!-- вывод самого изображения -->
                 <img src="<?= $value['file'] ?>" alt="<?= $value['name'] ?>">
                 <!-- вывод количества просмотров -->
-                <h2>Количество просмотров: <?= $value['likes'] ?></h2>
+                <h3>Количество просмотров: <?= $value['likes'] ?></h3>
         <? endforeach; ?>
+        <form action="index.php">
+        <button type="submit">Вернуться на главную</button>
+</form>
     </div>
 </body>
 </html>
