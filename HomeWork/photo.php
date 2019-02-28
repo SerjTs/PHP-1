@@ -33,9 +33,8 @@ while ($row = mysqli_fetch_assoc($mysql_query)) {
     $picture[] = $row;
 }
 // увеличение счетчика просмотров выбранной картинки
-
-$mysql = mysqli_query("UPDATE `pictures` SET `likes` = likes+1 WHERE `pictures`.`id` = $id;");
-
+//$mysql = mysqli_query("UPDATE `pictures` SET `likes` = likes+1 WHERE `pictures`.`id` = $id;");
+$mysql_query = mysqli_query($mysql, "UPDATE pictures SET likes = likes+1 WHERE pictures.id = $id;");
 
 // закрытие соединения с MySLQ базой
 mysqli_close($mysql); ?>
