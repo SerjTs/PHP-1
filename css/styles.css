@@ -7,9 +7,9 @@ body{
  
 
 .container {
-/*	width: 236px;*/
-/*	height: 300px;*/
-    border: 1px solid #000;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding-top: 8px;
 }
 
 textarea {
@@ -29,7 +29,7 @@ textarea {
 }
 
 .btnZero {
-    width: 84px;
+    width: 88px;
 }
 
 .col-3 {
@@ -40,4 +40,22 @@ textarea {
     margin-right: -5px;
     margin-left: -5px;
 
+}
+
+.zpt {
+    padding: 3px 0px;
+    margin: 0px;
+}
+
+.col-2 {
+        padding: 6px 27px;
+}
+
+.col-7 {
+        padding: 6px 15px;
+}
+
+
+.col-10 {
+    margin: 4px -19px;
 }

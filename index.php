@@ -13,14 +13,14 @@
 
 <body>
 
-           
-    <h4 class="text-center">Калькулятор</h4>
+    <br>
+    <h3 class="text-center">Калькулятор</h3>
     <form name="calc" id="calculator">
         <div class="container col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <div class="form-group col-md-13">
-               <textarea disabled readonly class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                <textarea disabled readonly class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
             </div>
-            <div class="row" style="max-width: 200px;">
+            <div class="row">
                 <div class="col-3">
                     <button type="submit" class="btn btn-primary btn-danger">C</button>
                 </div>
@@ -34,7 +34,7 @@
                     <button type="submit" class="btn btn-dark">х</button>
                 </div>
             </div>
-            <div class="row" style="max-width: 200px;">
+            <div class="row">
                 <div class="col-3">
                     <button type="submit" class="btn btn-secondary">7</button>
                 </div>
@@ -48,7 +48,7 @@
                     <button type="submit" class="btn btn-dark">&ndash;</button>
                 </div>
             </div>
-            <div class="row" style="max-width: 200px;">
+            <div class="row">
                 <div class="col-3">
                     <button type="submit" class="btn btn-secondary">4</button>
                 </div>
@@ -62,30 +62,34 @@
                     <button type="submit" class="btn btn-dark">+</button>
                 </div>
             </div>
-            <div class="row" style="max-width: 200px;">
-                <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">1</button>
+            <div class="row">
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-secondary">1</button>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-secondary">2</button>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-secondary">3</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <button type="submit" class="btn btnZero btn-secondary">0</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-secondary zpt">,</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">2</button>
-                </div>
-                <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">3</button>
-                </div>
-                <div class="col-3">
+                <div class="col-2">
                     <button type="submit" class="btn btnEnter btn-dark">=</button>
                 </div>
             </div>
-            <div class="row align-items-start" style="max-width: 200px;">
-                <div class="clearfix"></div>  
-                   <div class="col-6">
-                    <button type="submit" class="btn btnZero btn-secondary">0</button>
-                </div>
-                <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">,</button>
-                </div>
-            </div>
         </div>
-    </form>                                                                                                                                  
+    </form>
+
 </body>
 </html>
