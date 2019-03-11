@@ -16,7 +16,7 @@
     <br>
     <h3 class="text-center">Калькулятор</h3>
     <form name="calc" id="calculator">
-        <div class="container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="container">
             <div class="form-group col-md-13">
                 <textarea disabled readonly class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
             </div>
