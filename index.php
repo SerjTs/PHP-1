@@ -1,5 +1,34 @@
 <?php
 
+var_dump ($textarea);
+var_dump ($_POST);
+// инициализация калькулятора при запуске
+if (empty($textarea)) {
+    // $textarea или 0, или пусто, или вообще не определена - будет 0 на экране калькулятора;
+    $textarea = 0;
+}
+
+// сброс калькулятора по кнопке С
+if (isset($_POST['cBtn'])) {
+    $textarea = 0;
+}
+
+// подключение цифровой клавиатуры
+if (isset($_POST['dBtn'])) {
+    if ($textarea == 0) {
+        // если на индикаторе 0 вместо него ставится первая цифра
+        var_dump ($textarea);
+        $textarea = $_POST['dBtn'];    
+    } else {
+    // если на индикаторе не 0, цифра добавляется в строку
+//        var_dump ($textarea);
+//        echo $textarea;
+        $textarea .= $_POST['dBtn'];
+    }
+    
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -15,14 +44,14 @@
 
     <br>
     <h3 class="text-center">Калькулятор</h3>
-    <form name="calc" id="calculator">
+    <form name="calc" id="calculator"  action="index.php" method="POST">
         <div class="container">
             <div class="form-group col-md-13">
-                <textarea disabled readonly class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                <textarea disabled readonly class="form-control" id="exampleFormControlTextarea1" rows="2"><?php print $textarea; ?></textarea>
             </div>
             <div class="row">
                 <div class="col-3">
-                    <button type="submit" class="btn btn-primary btn-danger">C</button>
+                    <button type="submit" class="btn btn-primary btn-danger" name="cBtn" value="C">C</button>
                 </div>
                 <div class="col-3">
                     <button type="submit" class="btn btn-danger">&larr;</button>
@@ -36,13 +65,13 @@
             </div>
             <div class="row">
                 <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">7</button>
+                    <button type="submit" class="btn btn-secondary" name="dBtn" value="7">7</button>
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">8</button>
+                    <button type="submit" class="btn btn-secondary" name="dBtn" value="8">8</button>
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">9</button>
+                    <button type="submit" class="btn btn-secondary" name="dBtn" value="9">9</button>
                 </div>
                 <div class="col-3">
                     <button type="submit" class="btn btn-dark">&ndash;</button>
@@ -50,13 +79,13 @@
             </div>
             <div class="row">
                 <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">4</button>
+                    <button type="submit" class="btn btn-secondary" name="dBtn" value="4">4</button>
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">5</button>
+                    <button type="submit" class="btn btn-secondary" name="dBtn" value="5">5</button>
                 </div>
                 <div class="col-3">
-                    <button type="submit" class="btn btn-secondary">6</button>
+                    <button type="submit" class="btn btn-secondary" name="dBtn" value="6">6</button>
                 </div>
                 <div class="col-3">
                     <button type="submit" class="btn btn-dark">+</button>
@@ -66,21 +95,21 @@
                 <div class="col-10">
                     <div class="row">
                         <div class="col-4">
-                            <button type="submit" class="btn btn-secondary">1</button>
+                            <button type="submit" class="btn btn-secondary" name="dBtn" value="1">1</button>
                         </div>
                         <div class="col-4">
-                            <button type="submit" class="btn btn-secondary">2</button>
+                            <button type="submit" class="btn btn-secondary" name="dBtn" value="2">2</button>
                         </div>
                         <div class="col-4">
-                            <button type="submit" class="btn btn-secondary">3</button>
+                            <button type="submit" class="btn btn-secondary" name="dBtn" value="3">3</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-7">
-                            <button type="submit" class="btn btnZero btn-secondary">0</button>
+                            <button type="submit" class="btn btnZero btn-secondary" name="dBtn" value="0">0</button>
                         </div>
                         <div class="col-2">
-                            <button type="submit" class="btn btn-secondary zpt">,</button>
+                            <button type="submit" class="btn btn-secondary zpt" name="dBtn" value=",">,</button>
                         </div>
                     </div>
                 </div>
@@ -90,6 +119,7 @@
             </div>
         </div>
     </form>
+
 
 </body>
 </html>

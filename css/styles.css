@@ -10,7 +10,7 @@ body{
     border: 2px solid gray;
     border-radius: 10px;
     padding-top: 8px;
-    width: 224px;
+    width: 220px;
     height: 322px;
 }
 
@@ -19,6 +19,7 @@ textarea {
     margin: 5px auto;
     margin-bottom: -13px;
     padding: 0px;
+    text-align:right;
 }
 
 .btn {
@@ -61,3 +62,4 @@ textarea {
 .col-10 {
     margin: 4px -19px;
 }
+
