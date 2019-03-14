@@ -11,13 +11,13 @@ body{
     border-radius: 10px;
     padding-top: 8px;
     width: 220px;
-    height: 322px;
+    height: 305px;
 }
 
 textarea {
     resize:none;
     margin: 5px auto;
-    margin-bottom: -13px;
+    margin-bottom: -7px;
     padding: 0px;
     text-align:right;
 }
